@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Reduce!</title>
+  <link rel="stylesheet" href="../../base.css">
+</head>
+
+<body>
+  <script>
+    // Grab all the text from a web page
+    // Count how many times each letter and number occurs
+    const text = `Firefox (UK)
+Browsers
+Products
+Join
+About
+
+Firefox Browser Developer Edition
+Welcome to your new favourite browser. Get the latest features, fast performance, and the development tools you need to build for the open web.
+
+Firefox Developer Edition
+Firefox Privacy Notice
+Firefox Developer Edition automatically sends feedback to Mozilla. Learn more
+
+
+
+Faster Performance
+A Next-Generation CSS Engine
+
+Firefox Quantum includes a new CSS engine, written in Rust, that has state-of-the-art innovations and is blazingly fast.
+
+Learn more
+
+Inactive CSS
+New Tools
+Inactive CSS
+Firefox DevTools now grays out CSS declarations that don’t have an effect on the page. When you hover over the info icon, you’ll see a useful message about why the CSS is not being applied, including a hint about how to fix the problem.
+
+Learn more
+
+_('Firefox DevTools')
+New Tools
+Firefox DevTools
+The new Firefox DevTools are powerful, flexible, and best of all, hackable. This includes a best-in-class JavaScript debugger, which can target multiple browsers and is built in React and Redux.
+
+Learn more
+
+_('Master CSS Grid')
+Innovative Features
+Master CSS Grid
+Firefox is the only browser with tools built specifically for building and designing with CSS Grid. These tools allow you to visualise the grid, display associated area names, preview transformations on the grid and much more.
+
+Learn more
+
+_('Fonts Panel')
+Faster Information
+Fonts Panel
+The new fonts panel in Firefox DevTools gives developers quick access to all of the information they need about the fonts being used in an element. It also includes valuable information such as the font source, weight, style and more.
+
+Learn more
+
+Design. Code. Test. Refine.
+Build and Perfect your sites
+with Firefox DevTools
+
+Inspector
+Inspect and refine code to build pixel-perfect layouts.
+
+Learn more about Page Inspector
+
+
+Console
+Track CSS, JavaScript, security and network issues.
+
+Learn more about Web Console
+
+
+Debugger
+Powerful JavaScript debugger with support for your framework.
+
+Learn more about JavaScript Debugger
+
+
+Network
+Monitor network requests that can slow or block your site.
+
+Learn more about Network Monitor
+
+
+Storage panel
+Add, modify and remove cache, cookies, databases and session data.
+
+Learn more about Storage Panel
+
+
+Responsive Design Mode
+Test sites on emulated devices in your browser.
+
+Learn more about Responsive Design View
+
+
+Visual Editing
+Fine-tune animations, alignment and padding.
+
+Learn more about Visual Editing
+
+
+Performance
+Unblock bottlenecks, streamline processes, optimise assets.
+
+Learn more about Performance Tools
+
+
+Memory
+Find memory leaks and make your application zippy.
+
+Learn more about Memory Tools
+
+
+Style Editor
+Edit and manage all your CSS stylesheets in your browser.
+
+Learn more about Style Editor
+
+Speak up
+Feedback makes us better. Tell us how we can improve the browser and Developer tools.
+
+Join the conversation
+
+Get involved
+Help build the last independent browser. Write code, fix bugs, make add-ons, and more.
+
+Start now
+
+
+Download the Firefox browser made for developers
+Firefox Developer Edition
+Firefox Privacy Notice
+Get the most out of Firefox Developer Edition
+Learn about Dev Edition and subscribe to the Mozilla Developer Newsletter.
+
+
+Your email address
+yourname@example.com
+
+Sign Up Now
+Firefox
+Support
+Privacy
+Press
+Brand Standards
+Browsers
+Desktop
+Mobile
+Reality
+Enterprise
+Products
+Lockwise
+Monitor
+Send
+Browsers
+Pocket
+Join
+Sign Up
+Sign In
+Benefits
+Developers
+Developer Edition
+Beta
+Beta for Android
+Nightly
+Nightly for Android
+Language
+Language
+English (British)
+Twitter (@firefox)
+
+Instagram (@firefox)
+
+YouTube (@firefoxchannel)
+Mozilla
+Visit Mozilla Corporation’s not-for-profit parent, the Mozilla Foundation.
+
+Portions of this content are ©1998–2020 by individual mozilla.org contributors. Content available under a Creative Commons licence.
+
+mozilla.org Privacy Web Site Privacy Notice Cookies Legal`;
+
+function isValidChar(char){
+  return char.match(/[a-z0-9]/i);
+}
+function Lowercasing(char){
+   return char.toLowerCase();
+}
+function lettercounter(wordcount,char){
+  wordcount[char] ? wordcount[char]++ : wordcount[char] = 1;
+  return wordcount;
+
+}
+
+
+
+const result = text
+   .split('')
+  .filter(isValidChar)
+  .map(Lowercasing)
+  .reduce(lettercounter,{})
+
+
+
+
+const sortedResult = Object.entries(result)
+.sort((a,b)=>{
+  return a[1]-b[1];
+});
+
+
+
+
+console.log(sortedResult);
+
+
+  </script>
+</body>
+
+</html>
